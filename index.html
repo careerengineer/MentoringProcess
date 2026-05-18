@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CareerEngineer | 멘토링 프로세스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  /* ============================================================
+     CareerEngineer Brand Standards v1.0 — 100% 정합
+     Color § 01: Heritage Navy 60% / Navy 30% / Gold 10%
+     Fonts § 03: Pretendard(Body·UI) / Noto Serif KR(Headline) / JetBrains Mono(Label)
+     ============================================================ */
+  :root {
+    /* === Brand Standards § 01 공식 색 === */
+    --ce-ink:      #0E2750;   /* Heritage Navy · Primary 60% */
+    --ce-ink-2:    #1B3A6B;   /* Mid Navy · Support */
+    --ce-ink-3:    #061328;   /* Deep Ink · Dark BG */
+    --ce-paper:    #F2F1EC;   /* Paper Cream · Surface */
+    --ce-mute:     #6E7A8F;   /* Steel · Meta/Muted */
+    --ce-gold:     #C9A86A;   /* Signal Gold · Accent (10% 이내) */
+    --ce-gold-deep:#A8853F;   /* Gold Deep · Hover */
+    --ce-gold-soft:#E2D3A8;   /* Gold Soft */
+    --white:       #FFFFFF;
+
+    /* === Plan 구분: 브랜드 팔레트 내 색상만 사용 === */
+    /* Premium: Mid Navy 계열 */
+    --p-bg:     rgba(27,58,107,0.10);
+    --p-txt:    #0E2750;
+    --p-border: #1B3A6B;
+    /* Unlimited: Gold 계열 */
+    --u-bg:     rgba(201,168,106,0.12);
+    --u-txt:    #6B4A00;
+    --u-border: #C9A86A;
+    /* Ultimate: Deep Ink + Gold Deep 계열 */
+    --ut-bg:    rgba(14,39,80,0.08);
+    --ut-txt:   #0E2750;
+    --ut-border:#A8853F;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--ce-paper);
+    font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', sans-serif;
+    color: var(--ce-ink);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .page {
+    width: 794px;
+    min-height: 1123px;
+    margin: 0 auto;
+    background: var(--ce-paper);
+    padding: 30px 36px 24px;
+  }
+  /* PDF 출력 시 자연 페이지 분할 */
+  @page { size: A4; margin: 0; }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ce-gold);
+    padding-bottom: 9px;
+    margin-bottom: 14px;
+  }
+  .brand-lockup {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .brand-mark {
+    width: 26px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+  .brand-name {
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--ce-ink); letter-spacing: -0.028em;
+    line-height: 1;
+  }
+  /* Brand Standards § 04: "Engineer"는 항상 골드 */
+  .brand-name em { color: var(--ce-gold); font-style: normal; }
+  .doc-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--ce-mute);
+    letter-spacing: 0.18em; font-weight: 500; text-transform: uppercase;
+  }
+
+  /* ── 상품 마크 시스템 — 서류=사각, 면접=원형, 각 상품별 고유 색상 ── */
+  /* 컬러 토큰 매핑 (브랜드 팔레트 내 — 대비 최대화) */
+  :root {
+    --pdoc-prem-color: #1B3A6B;  /* 서류 Premium = Mid Navy */
+    --pdoc-unlt-color: #A8853F;  /* 서류 Unlimited = Gold Deep (BEST 강조) */
+    --pint-mock-color: #6E7A8F;  /* 면접 모의면접 = Steel */
+    --pint-pt-color:   #A8853F;  /* 면접 PT 대비 = Gold Deep */
+    --pint-prem-color: #C9A86A;  /* 면접 Premium = Signal Gold */
+    --pint-unlt-color: #061328;  /* 면접 Unlimited = Deep Ink */
+  }
+
+  /* 마크 본체 */
+  .pmark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+  }
+  /* 서류 = 사각형 (모서리 살짝 둥글) */
+  .pmark.docs { border-radius: 2px; }
+  /* 면접 = 원형 (완전 원) */
+  .pmark.interview { border-radius: 50%; }
+
+  .pmark.docs.prem      { background: var(--pdoc-prem-color); }
+  .pmark.docs.unlt      { background: var(--pdoc-unlt-color); }
+  .pmark.interview.mock { background: var(--pint-mock-color); color: var(--white); }
+  .pmark.interview.pt   { background: var(--pint-pt-color);   color: var(--white); }
+  .pmark.interview.prem { background: var(--pint-prem-color); color: var(--ce-ink); }
+  .pmark.interview.unlt { background: var(--pint-unlt-color); color: var(--white); }
+
+  /* Ultimate 라벨 — Gold Soft 배경 + Navy 텍스트로 구분 */
+  .pmark.ult-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 16px;
+    background: var(--ce-gold-soft);
+    color: var(--ce-ink);
+    border-radius: 8px 2px 8px 2px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 700;
+    flex-shrink: 0;
+    line-height: 1;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--ce-gold-deep);
+  }
+
+  /* 마크 그룹 (단계 우측에 여러 마크 표시) */
+  .pmark-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    justify-content: flex-end;
+    align-content: flex-start;
+    padding-top: 2px;
+    align-items: center;
+  }
+  .pmark-divider {
+    width: 1px;
+    background: rgba(14,39,80,0.18);
+    height: 14px;
+    margin: 0 2px;
+    flex-shrink: 0;
+  }
+
+  /* ── 마크 범례 ── */
+  .legend-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: 4px 0 10px;
+    padding: 6px 12px;
+    background: rgba(14,39,80,0.04);
+    border-radius: 6px;
+    font-size: 9.5px;
+    color: var(--ce-mute);
+    flex-wrap: wrap;
+  }
+  .legend-bar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .legend-bar-item strong {
+    color: var(--ce-ink);
+    font-weight: 600;
+  }
+  .legend-divider-v {
+    width: 1px;
+    height: 12px;
+    background: rgba(14,39,80,0.15);
+  }
+
+  .onboard {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+    border-radius: 8px;
+    padding: 8px 12px;
+  }
+  .onboard.docs    { background: var(--ce-ink); }
+  .onboard.interview { background: var(--ce-ink-2); }
+  .ob-track {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--ce-gold);
+    text-transform: uppercase;
+    border-right: 1px solid rgba(201,168,106,0.3);
+    padding-right: 8px;
+    line-height: 1.35;
+  }
+  .ob-track strong {
+    display: block;
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.01em;
+    margin-top: 2px;
+  }
+  .ob-steps {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .ob-step { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; }
+  .ob-label { font-size: 9.5px; font-weight: 700; color: var(--ce-gold); text-align: center; letter-spacing: 0.02em; }
+  .ob-sub   { font-size: 8.5px; color: rgba(242,241,236,0.6); text-align: center; line-height: 1.3; }
+  .ob-arrow { color: var(--ce-gold-deep); font-size: 13px; opacity: 0.7; flex-shrink: 0; }
+
+  /* ── PLAN CARDS (서류 2 + 면접 4 + Ultimate 통합) ── */
+  .plan-block {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 7px;
+    margin-top: 8px;
+    margin-bottom: 14px;
+  }
+  .plan-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .plan-row-label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .plan-row-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px; font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+  .plan-row-tag.docs       { background: var(--ce-ink);   color: var(--ce-gold); }
+  .plan-row-tag.interview  { background: var(--ce-ink-2); color: var(--ce-gold); }
+
+  .plan-row-cards {
+    display: grid;
+    gap: 5px;
+    flex: 1;
+  }
+  .plan-row-cards.docs-row      { grid-template-columns: 1fr 1fr; }
+  .plan-row-cards.interview-row { grid-template-columns: 1fr 1fr 1fr 1fr; }
+
+  .pc {
+    border-radius: 6px;
+    padding: 6px 9px;
+    border-left: 3px solid transparent;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    min-height: 56px;
+  }
+  .pc.docs       { border-left-color: var(--ce-ink-2); background: rgba(27,58,107,0.04); }
+  .pc.docs.best  { border-left-color: var(--ce-gold-deep);  background: linear-gradient(135deg, rgba(168,133,63,0.22), rgba(168,133,63,0.08)); border-left-width: 4px; }
+  .pc.interview  { border-left-color: var(--ce-mute); background: rgba(110,122,143,0.06); }
+  .pc.interview.best { border-left-color: var(--ce-gold); background: linear-gradient(135deg, rgba(6,19,40,0.14), rgba(6,19,40,0.05)); border-left-width: 4px; }
+
+  .pc-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 10.5px; font-weight: 700;
+    color: var(--ce-ink);
+    line-height: 1.2;
+  }
+  .pc-name .pc-best { color: var(--ce-gold-deep); font-size: 8.5px; margin-left: 3px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+  .pc-price { font-size: 12px; font-weight: 700; color: var(--ce-ink); line-height: 1.1; }
+  .pc-orig  { font-size: 8.5px; color: var(--ce-mute); text-decoration: line-through; line-height: 1; }
+  .pc-feat  { font-size: 8.5px; color: var(--ce-mute); line-height: 1.35; margin-top: 1px; }
+
+  /* Ultimate 통합 카드 — 우측 2줄 높이 */
+  .plan-ultimate {
+    background: linear-gradient(135deg, rgba(201,168,106,0.16), rgba(201,168,106,0.06));
+    border: 2px solid var(--ce-gold);
+    border-radius: 8px;
+    padding: 10px 11px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+  .pu-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px; font-weight: 700;
+    letter-spacing: 0.1em;
+    background: var(--ce-gold);
+    color: var(--ce-ink);
+    padding: 2px 6px;
+    border-radius: 3px;
+    align-self: flex-start;
+    text-transform: uppercase;
+  }
+  .pu-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px; font-weight: 700;
+    color: var(--ce-ink);
+    line-height: 1.2;
+    margin-top: 3px;
+  }
+  .pu-name em { color: var(--ce-gold-deep); font-style: normal; }
+  .pu-price { font-size: 14px; font-weight: 700; color: var(--ce-ink); line-height: 1.1; }
+  .pu-orig  { font-size: 9px; color: var(--ce-mute); text-decoration: line-through; line-height: 1; }
+  .pu-desc  { font-size: 9px; color: var(--ce-ink); line-height: 1.4; margin-top: 3px; }
+  .pu-desc strong { color: var(--ce-gold-deep); font-weight: 700; }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 7px; margin-top: 12px;
+  }
+  .sec-pill {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px; font-weight: 600; letter-spacing: 0.15em;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap; text-transform: uppercase;
+  }
+  .sec-pill.part1 { background: var(--ce-ink);       color: var(--ce-gold); }
+  .sec-pill.part2 { background: var(--ce-ink-2);     color: var(--ce-gold); }
+  .sec-pill.part3 { background: var(--ce-gold-deep); color: var(--white); }
+  .sec-pill.part0 { background: var(--ce-mute);      color: var(--white); }
+  .sec-title { font-family: 'Noto Serif KR', serif; font-size: 12px; font-weight: 700; color: var(--ce-ink); }
+  .sec-divider { flex: 1; height: 1px; background: rgba(14,39,80,0.15); }
+
+  .legend { display: flex; gap: 4px; align-items: center; }
+  .legend .pmark { width: 13px; height: 13px; font-size: 7px; }
+  .legend .pmark.ult-label { width: 18px; height: 13px; font-size: 7px; }
+  .pt {
+    font-size: 9px; font-weight: 700;
+    padding: 2px 6px; border-radius: 3px;
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
+  }
+  .pt-p  { background: var(--p-bg);  color: var(--p-txt);  border: 1px solid var(--p-border); }
+  .pt-ul { background: var(--u-bg);  color: var(--u-txt);  border: 1px solid var(--u-border); }
+  .pt-ut { background: var(--ut-bg); color: var(--ut-txt); border: 1px solid var(--ut-border); }
+
+  /* ── STEP ROW ── */
+  .step-list { display: flex; flex-direction: column; gap: 4px; }
+
+  .step-row {
+    display: grid;
+    grid-template-columns: 28px 128px 1fr 100px;
+    gap: 7px; align-items: start;
+    background: var(--white); border-radius: 6px;
+    padding: 6px 10px; border-left: 3px solid var(--ce-ink);
+  }
+  .step-row.ut-only {
+    border-left-color: var(--ce-ink-2);
+    background: rgba(27,58,107,0.05);
+  }
+  .step-row.iv-step {
+    border-left-color: var(--ce-ink-2);
+    background: rgba(27,58,107,0.04);
+  }
+  .step-row.kickoff {
+    border-left-color: var(--ce-mute);
+    background: rgba(110,122,143,0.06);
+  }
+
+  .step-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px; font-weight: 700;
+    color: var(--ce-ink); line-height: 1; padding-top: 1px;
+  }
+  .step-row.ut-only .step-num { color: var(--ce-ink-2); }
+  .step-row.iv-step .step-num { color: var(--ce-ink-2); font-size: 16px; padding-top: 3px; }
+  .step-row.kickoff .step-num { color: var(--ce-mute); }
+
+  .step-title { font-size: 12px; font-weight: 700; color: var(--ce-ink); margin-bottom: 2px; }
+  .step-desc  { font-size: 10.5px; color: var(--ce-mute); line-height: 1.4; }
+  .step-right { display: flex; flex-direction: column; gap: 3px; }
+
+  .doc-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 600;
+    border-radius: 4px; padding: 2px 6px; width: fit-content;
+  }
+  .doc-tag.wb { color: var(--ce-gold-deep); background: rgba(168,133,63,0.10); border: 1px solid rgba(168,133,63,0.35); }
+  .doc-tag.fb { color: var(--ce-ink);       background: rgba(14,39,80,0.07);   border: 1px solid rgba(14,39,80,0.2); }
+  .doc-tag.mi { color: var(--ce-gold-deep); background: rgba(168,133,63,0.10); border: 1px solid rgba(168,133,63,0.35); }
+  /* 자료 제공 — doc-tag 자체가 링크 */
+  a.doc-tag-link {
+    text-decoration: none;
+    display: inline-block;
+  }
+  a.doc-tag-link:hover .doc-tag {
+    opacity: 0.78;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .doc-line-wrap {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  /* doc-tag + doc-worth 한 줄 컨테이너 (step-right column flex 안에서 한 라인) */
+  .doc-line {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2px 0;
+  }
+  /* 자료 정가 상당액 — doc-tag 옆에 inline으로 */
+  .doc-worth {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--ce-mute);
+    margin-left: 6px;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .doc-worth strong { color: var(--ce-gold-deep); font-weight: 700; }
+
+  .step-note { font-size: 10px; color: var(--ce-mute); line-height: 1.4; }
+
+  /* ── BEFORE / AFTER ROWS ── */
+  .ba-wrap {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .ba-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 9.5px;
+    line-height: 1.4;
+  }
+  .ba-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 1px 5px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    min-width: 42px;
+    text-align: center;
+  }
+  .ba-tag.before { background: rgba(110,122,143,0.15); color: var(--ce-mute); }
+  .ba-tag.after  { background: rgba(201,168,106,0.18); color: var(--ce-gold-deep); }
+  .ba-text { color: var(--ce-mute); flex: 1; }
+  .ba-row.after .ba-text { color: var(--ce-ink); font-weight: 500; }
+  .ba-row.after .ba-text strong { color: var(--ce-gold-deep); font-weight: 700; }
+
+  /* ── ROLE ROWS (지원자 · CareerEngineer 역할) ── */
+  .role-wrap {
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px dashed rgba(14,39,80,0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .role-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 9.5px;
+    line-height: 1.4;
+  }
+  .role-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    padding: 1px 4px;
+    border-radius: 3px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    width: 80px;
+    text-align: center;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+  }
+  .role-tag.you {
+    background: var(--white);
+    color: var(--ce-ink-2);
+    border-color: rgba(27,58,107,0.35);
+    font-family: 'Pretendard Variable', Pretendard, sans-serif;
+    letter-spacing: 0;
+  }
+  .role-tag.ce {
+    background: var(--ce-ink);
+    color: var(--white);
+    border-color: var(--ce-ink);
+  }
+  .role-tag.ce em {
+    color: var(--ce-gold);
+    font-style: normal;
+  }
+  .role-text { color: var(--ce-ink); flex: 1; }
+  .role-row.you .role-text { color: var(--ce-mute); }
+  .role-row.ce .role-text strong { color: var(--ce-gold-deep); font-weight: 700; }
+
+  .plan-tags {
+    display: flex; gap: 3px; flex-wrap: wrap;
+    justify-content: flex-end; align-self: start; padding-top: 2px;
+  }
+
+  /* ── INTERVIEW STANDALONE SECTION ── */
+  .interview-intro {
+    margin-top: 6px; margin-bottom: 8px;
+    background: var(--ce-ink);
+    border-radius: 8px; padding: 10px 14px;
+  }
+  .interview-intro-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 12px; font-weight: 700;
+    color: var(--ce-gold); margin-bottom: 3px;
+  }
+  .interview-intro-desc {
+    font-size: 10px; color: rgba(242,241,236,0.72); line-height: 1.5;
+  }
+
+  /* 5가지 면접 플랜 카드 */
+  .interview-plan-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px; margin-bottom: 8px;
+  }
+  .iv-card {
+    border-radius: 6px; padding: 7px 8px; text-align: center;
+    border: 1px solid rgba(14,39,80,0.14);
+    background: var(--white);
+    display: flex; flex-direction: column;
+  }
+  .iv-card.best {
+    border: 2px solid var(--ce-gold);
+    background: rgba(201,168,106,0.06);
+  }
+  .iv-card.top {
+    border: 2px solid var(--ce-ink-2);
+    background: rgba(14,39,80,0.05);
+  }
+  .iv-badge {
+    display: inline-block; align-self: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7.5px; font-weight: 600;
+    padding: 1px 6px; border-radius: 10px; margin-bottom: 4px; letter-spacing: 0.04em;
+    background: var(--ce-gold); color: var(--ce-ink);
+  }
+  .iv-badge.navy { background: var(--ce-ink-2); color: var(--white); }
+  .iv-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 11px; font-weight: 700;
+    color: var(--ce-ink); margin-bottom: 2px;
+  }
+  .iv-card.best .iv-name { color: var(--ce-gold-deep); }
+  .iv-card.top  .iv-name { color: var(--ce-ink-2); }
+  .iv-discount {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px; font-weight: 600;
+    color: var(--ce-gold-deep); letter-spacing: 0.03em; margin-bottom: 1px;
+  }
+  .iv-price { font-size: 11px; font-weight: 700; color: var(--ce-ink); }
+  .iv-orig  { font-size: 8.5px; color: var(--ce-mute); text-decoration: line-through; margin-bottom: 4px; }
+  .iv-features {
+    text-align: left; margin-top: 4px; padding-top: 4px;
+    border-top: 1px solid rgba(14,39,80,0.09); flex: 1;
+  }
+  .iv-feat {
+    font-size: 8.5px; color: var(--ce-mute); line-height: 1.55;
+    padding-left: 9px; position: relative;
+  }
+  .iv-feat::before { content: '·'; position: absolute; left: 1px; color: var(--ce-gold-deep); font-weight: 700; }
+  .iv-feat strong { color: var(--ce-ink); font-weight: 700; }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 14px; padding-top: 9px;
+    border-top: 1px solid rgba(14,39,80,0.15);
+    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  }
+  .footer-left { font-size: 10px; color: var(--ce-mute); line-height: 1.6; }
+  .footer-cta {
+    background: var(--ce-ink); color: var(--ce-gold);
+    font-size: 10px; font-weight: 700;
+    padding: 6px 14px; border-radius: 6px;
+    letter-spacing: 0.05em; white-space: nowrap;
+  }
+  .footer-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px; color: var(--ce-mute); text-align: right; line-height: 1.7; letter-spacing: 0.04em;
+  }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand-lockup">
+      <svg class="brand-mark" viewBox="0 0 683 620" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision">
+        <path d="M 0 310 L 310 0 L 408 98 L 408 166 L 310 68 L 68 310 L 310 552 L 408 454 L 408 522 L 310 620 Z" fill="#0E2750"/>
+        <rect x="203" y="195" width="352" height="46" fill="#0E2750"/>
+        <rect x="283" y="288" width="350" height="43" fill="#C9A86A"/>
+        <rect x="331" y="389" width="352" height="46" fill="#0E2750"/>
+      </svg>
+      <div class="brand-name">Career<em>Engineer</em></div>
+    </div>
+    <div class="doc-title">멘토링 · 진행 프로세스 안내</div>
+  </div>
+
+  <!-- ONBOARDING — 서류 멘토링 신청 -->
+  <div class="onboard docs">
+    <div class="ob-track">멘토링 프로세스<strong>서류 멘토링</strong></div>
+    <div class="ob-steps">
+      <div class="ob-step"><div class="ob-label">무료 상담</div><div class="ob-sub">카카오톡 1:1<br>상황 파악</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">플랜 선택 · 결제</div><div class="ob-sub">Premium /<br>Unlimited</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">초기 인터뷰</div><div class="ob-sub">상황 분석<br>전략 수립</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">서류 멘토링 진행</div><div class="ob-sub">경험→자소서→이력서<br>1:1 첨삭 반복</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">완성 · 제출</div><div class="ob-sub">최종 점검<br>결과 회고</div></div>
+    </div>
+  </div>
+
+  <!-- ONBOARDING — 면접 멘토링 신청 -->
+  <div class="onboard interview">
+    <div class="ob-track">멘토링 프로세스<strong>면접 멘토링</strong></div>
+    <div class="ob-steps">
+      <div class="ob-step"><div class="ob-label">무료 상담</div><div class="ob-sub">카카오톡 1:1<br>면접 상황 파악</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">옵션 선택 · 결제</div><div class="ob-sub">5가지 중 선택<br>(모의~Unlimited)</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">초기 인터뷰</div><div class="ob-sub">서류 검토<br>면접 일정 정렬</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">면접 멘토링 진행</div><div class="ob-sub">유형별 답변 전략<br>모의면접 + 피드백</div></div>
+      <div class="ob-arrow">›</div>
+      <div class="ob-step"><div class="ob-label">합격 · 회고</div><div class="ob-sub">합격까지 동반<br>결과 회고</div></div>
+    </div>
+  </div>
+
+  <!-- PLAN CARDS — 서류(2) + 면접(4) + Ultimate(통합) -->
+  <div class="plan-block">
+    <div class="plan-rows">
+      <!-- 서류 멘토링 상품 -->
+      <div class="plan-row-label">
+        <span class="plan-row-tag docs">서류 멘토링</span>
+        <div class="plan-row-cards docs-row">
+          <a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="pc docs">
+            <div class="pc-name"><span class="pmark docs prem">P</span> Premium</div>
+            <div class="pc-price">200,000원</div>
+            <div class="pc-feat">Premium 서류합격 멘토링 · 자소서 + 이력서</div>
+          </div>
+          </a>
+          <a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="pc docs best">
+            <div class="pc-name"><span class="pmark docs unlt">U</span> Unlimited<span class="pc-best">★ BEST</span></div>
+            <div class="pc-price">300,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">400,000원</span></div>
+            <div class="pc-feat">Unlimited 서류합격 멘토링 · 무제한 첨삭</div>
+          </div>
+          </a>
+        </div>
+      </div>
+      <!-- 면접 멘토링 상품 -->
+      <div class="plan-row-label">
+        <span class="plan-row-tag interview">면접 멘토링</span>
+        <div class="plan-row-cards interview-row">
+          <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="pc interview">
+            <div class="pc-name"><span class="pmark interview mock">M</span> 모의면접</div>
+            <div class="pc-price">100,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">200,000원</span></div>
+            <div class="pc-feat">실전 모의면접 및 피드백 · 1회</div>
+          </div>
+          </a>
+          <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="pc interview">
+            <div class="pc-name"><span class="pmark interview pt">T</span> PT면접</div>
+            <div class="pc-price">150,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">300,000원</span></div>
+            <div class="pc-feat">PT면접 멘토링 · 발표 집중</div>
+          </div>
+          </a>
+          <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="pc interview">
+            <div class="pc-name"><span class="pmark interview prem">P</span> Premium</div>
+            <div class="pc-price">200,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">400,000원</span></div>
+            <div class="pc-feat">Premium 면접합격 멘토링</div>
+          </div>
+          </a>
+          <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
+          <div class="pc interview best">
+            <div class="pc-name"><span class="pmark interview unlt">U</span> Unlimited<span class="pc-best">★</span></div>
+            <div class="pc-price">300,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">500,000원</span></div>
+            <div class="pc-feat">Unlimited 면접합격 멘토링</div>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ultimate — 두 줄 통합 -->
+    <div class="plan-ultimate">
+      <span class="pu-tag"><span class="pmark ult-label" style="margin-right:5px;">UT</span>All-in-One</span>
+      <div class="pu-name">Ultimate <a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="color:var(--ce-gold-deep);text-decoration:underline;text-underline-offset:2px;font-style:normal;">최종합격</a></div>
+      <div>
+        <span class="pu-orig">정가 700,000원</span>
+        <div class="pu-price">497,000원</div>
+      </div>
+      <div class="pu-desc"><a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="color:var(--ce-gold-deep);font-weight:700;text-decoration:underline;text-underline-offset:2px;">서류 Unlimited</a> + 면접 Unlimited 통합 · 한 멘토가 자소서·이력서부터 모든 면접 유형까지 전 과정 동반</div>
+    </div>
+  </div>
+
+  <!-- PART 0 — 결제 직후 초기 인터뷰 (전 플랜 공통) -->
+  <div class="section-label">
+    <div class="sec-pill part0">PART 0 · 결제 직후</div>
+    <div class="sec-title">멘토링 시작 전 — 초기 인터뷰로 전략 수립</div>
+    <div class="sec-divider"></div>
+    <div class="legend">
+      <span style="font-size:9px;color:var(--ce-mute);">전 상품 공통 ▶</span>
+    </div>
+  </div>
+
+  <div class="step-list">
+
+    <div class="step-row kickoff">
+      <div class="step-num">00</div>
+      <div>
+        <div class="step-title">초기 인터뷰</div>
+        <div class="step-desc">현재 상황 분석 · 멘토링 전략 수립</div>
+      </div>
+      <div class="step-right">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <span class="doc-tag fb">Notion을 통해 취업 전략 수립 및 관리</span>
+          </div>
+        </div>
+        <span class="step-note">지원자 배경·목표 회사·현재 자료·취업 일정을 함께 점검하고 멘토링 로드맵 확정</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">뭐부터 해야 할지 막막 · 일반론 컨설팅으로 시간 낭비</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text"><strong>본인 상황 맞춤 전략</strong> · 어떤 단계에 시간을 쓸지 합의된 로드맵</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">자소서·이력서·채용공고 사전 공유 · 본인 강점·우려 솔직하게 공유</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text"><strong>제출 자료 사전 검토</strong> · 갭 진단 · 우선순위·일정 포함 맞춤 로드맵 제시</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark docs prem" title="서류 Premium">P</span>
+        <span class="pmark docs unlt" title="서류 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark interview mock" title="면접 모의면접">M</span>
+        <span class="pmark interview pt" title="면접 PT 대비">T</span>
+        <span class="pmark interview prem" title="면접 Premium">P</span>
+        <span class="pmark interview unlt" title="면접 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PART 1 -->
+  <div class="section-label">
+    <div class="sec-pill part1">PART 1 · 서류 단계</div>
+    <div class="sec-title">경험 정리부터 자소서 완성까지</div>
+    <div class="sec-divider"></div>
+    <div class="legend">
+      <span class="pmark docs prem">P</span>
+      <span class="pmark docs unlt">U</span>
+      <span class="pmark ult-label">UT</span>
+      <span style="font-size:9px;color:var(--ce-mute);">서류 멘토링 전 상품</span>
+    </div>
+  </div>
+
+  <div class="step-list">
+
+    <div class="step-row">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-title">경험 정리</div>
+        <div class="step-desc">직무 역량 단위로 경험 재배열</div>
+      </div>
+      <div class="step-right">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/wDSaj" target="_blank" rel="noopener"><span class="doc-tag wb">경험정리 가이드 & 워크북 제공</span></a>
+            <span class="doc-worth">— <strong>20,000원</strong> 상당</span>
+          </div>
+        </div>
+        <span class="step-note">나의 경험을 역량별·상황별로 분류하여 자소서 소재 선별</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">"쓸 경험이 없다" · 막연한 시간 순 나열</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text"><strong>직무 역량 단위로 재배열</strong> · 자소서·면접 어디든 꺼내 쓰는 소재 풀</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">워크북 14개 항목 직접 채워 본인 경험 인벤토리 작성</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">워크북 제공 · 필요 시 경험 발굴 가이드</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark docs prem" title="서류 Premium">P</span>
+        <span class="pmark docs unlt" title="서류 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-title">직무 분석</div>
+        <div class="step-desc">채용공고 키워드 추출 · 회사 맥락 이해</div>
+      </div>
+      <div class="step-right">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/-3Wgm" target="_blank" rel="noopener"><span class="doc-tag wb">채용공고 분석 & 직무분석 가이드 & 워크북 제공</span></a>
+            <span class="doc-worth">— <strong>15,000원</strong> 상당</span>
+          </div>
+        </div>
+        <span class="step-note">채용공고 핵심어 추출, 회사·직군 맥락을 자소서에 연결</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">공고를 한 번 읽고 끝 · 같은 자소서를 모든 회사에 제출</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text"><strong>산업→직무→회사→나</strong> 연결점 도출 · 회사별 타깃 자소서</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">목표 회사 채용공고 공유 · 6 STEP 따라 키워드·요구역량 직접 추출</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">워크북 제공 · 필요 시 직무 연결 가이드</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark docs prem" title="서류 Premium">P</span>
+        <span class="pmark docs unlt" title="서류 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-title">이력서 작성</div>
+        <div class="step-desc">직무 중심 이력서 구성 및 완성</div>
+      </div>
+      <div class="step-right">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/F8JkO" target="_blank" rel="noopener"><span class="doc-tag wb">이력서 작성 가이드 & 워크북 제공</span></a>
+            <span class="doc-worth">— <strong>20,000원</strong> 상당</span>
+          </div>
+        </div>
+        <span class="step-note">항목별 작성 방법 안내 및 멘토 피드백 반영</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">"~하였습니다" 서술형 나열 · 7초 스캔에서 탈락</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text"><strong>개조식 + 키워드 + 성과 수치</strong> · ATS 통과</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">6 STEP 워크북 따라 이력서 초안 작성 · 성과 수치·도구·기술 직접 정리</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">워크북 제공 · 필요 시 작성 가이드</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark docs prem" title="서류 Premium">P</span>
+        <span class="pmark docs unlt" title="서류 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-title">자소서 작성</div>
+        <div class="step-desc">문항 의도 파악 → 답변 구조 설계 → 초안 작성</div>
+      </div>
+      <div class="step-right">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/dfdMW" target="_blank" rel="noopener"><span class="doc-tag wb">자소서 작성 가이드 & 워크북 제공</span></a>
+            <span class="doc-worth">— <strong>45,000원</strong> 상당</span>
+          </div>
+        </div>
+        <span class="step-note">지원동기·역량·장단점·목표·포부 항목별 구조 설계 후 초안 완성</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">합격 자소서 따라쓰기 · 항목 간 따로 노는 글</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text">질문에 답하며 완성 · <strong>5대항목이 하나의 스토리</strong>로 연결</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">각 회사 자소서 문항에 맞게 본인 경험·가치관으로 답변 초안 작성</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">문항 의도 해설 · 항목 간 스토리 일관성 1:1 첨삭</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark docs prem" title="서류 Premium">P</span>
+        <span class="pmark docs unlt" title="서류 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row">
+      <div class="step-num">05</div>
+      <div>
+        <div class="step-title">채용담당자 시선 피드백</div>
+        <div class="step-desc">채용담당자의 시선으로 검토 및 피드백 제공</div>
+      </div>
+      <div class="step-right">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <span class="doc-tag fb">멘토 1:1 피드백</span>
+            <span class="doc-worth">— <strong>10,000원</strong> 상당</span>
+          </div>
+        </div>
+        <span class="step-note">구조·논리·표현 관점 피드백 → 수정 → 재검토 반복</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">"내가 잘 썼는지 모르겠다" · 객관적 피드백 부재</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text"><strong>탈락 사유까지 짚어 반복 첨삭</strong></span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">피드백 반영해 자소서·이력서 수정 → 재검토 요청 · 제출 전 최종 점검</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text"><strong>채용담당자 시선 1:1 첨삭</strong> · 완성도 도달까지 반복 피드백</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark docs prem" title="서류 Premium">P</span>
+        <span class="pmark docs unlt" title="서류 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PART 2 — 면접 단계 (Ultimate + 면접 멘토링 4개 옵션 공통) -->
+  <div class="section-label">
+    <div class="sec-pill part2">PART 2 · 면접 단계</div>
+    <div class="sec-title">면접 답변 설계부터 실전 모의면접까지</div>
+    <div class="sec-divider"></div>
+    <div class="legend">
+      <span class="pmark interview mock">M</span>
+      <span class="pmark interview pt">T</span>
+      <span class="pmark interview prem">P</span>
+      <span class="pmark interview unlt">U</span>
+      <span class="pmark ult-label">UT</span>
+      <span style="font-size:9px;color:var(--ce-mute);">면접 멘토링 전 상품</span>
+    </div>
+  </div>
+
+  <div class="step-list">
+
+    <div class="step-row ut-only">
+      <div class="step-num">06</div>
+      <div>
+        <div class="step-title">면접 답변 설계</div>
+        <div class="step-desc">서류 기반 예상 질문 도출 · 답변 논리 구조화</div>
+      </div>
+      <div class="step-right" data-coverage="all-interview">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/O-KKc" target="_blank" rel="noopener"><span class="doc-tag mi">면접 유형별 답변 전략 및 실전 대응 가이드 제공</span></a>
+            <span class="doc-worth">— <strong>25,000원</strong> 상당</span>
+          </div>
+        </div>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">예상 질문 모음만 외움 · 꼬리질문에 무너짐</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text">서류 기반 <strong>맞춤 예상 질문</strong> · 면접관이 듣고 싶은 답변 뼈대 완성</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">제공된 예상 질문에 본인 경험으로 답변 초안 직접 작성</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">합격 서류 기반 예상 질문 도출 · 답변 구조 피드백</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark interview mock" title="면접 모의면접">M</span>
+        <span class="pmark interview pt" title="면접 PT 대비">T</span>
+        <span class="pmark interview prem" title="면접 Premium">P</span>
+        <span class="pmark interview unlt" title="면접 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row ut-only">
+      <div class="step-num">07</div>
+      <div>
+        <div class="step-title">면접 유형별 대비</div>
+        <div class="step-desc">실무 · 인성 · 임원 통합 — 채용담당자 관점 답변 전략</div>
+      </div>
+      <div class="step-right" data-coverage="premium-up">
+        <div class="doc-line">
+          <div class="doc-line-wrap">
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener"><span class="doc-tag mi">신입·경력 면접 가이드 & 워크북 제공</span></a>
+            <a class="doc-tag-link" href="https://www.latpeed.com/products/LObbV" target="_blank" rel="noopener"><span class="doc-tag mi">1분 자기소개 가이드 & 워크북 제공</span></a>
+            <span class="doc-worth">— <strong>50,000원</strong> 상당</span>
+          </div>
+        </div>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">면접 유형 구분 없이 같은 답변 · 꼬리질문에 무너짐</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text">실무·인성·임원 <strong>유형별 답변 전략</strong> · 채용담당자가 듣고 싶은 답변</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">유형별 핵심 질문에 본인 답변 정리 · 꼬리·지뢰질문 시뮬레이션 응시</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">채용담당자 관점 답변 전략 수립 · 꼬리·지뢰질문 투입</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark interview prem" title="면접 Premium">P</span>
+        <span class="pmark interview unlt" title="면접 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row ut-only">
+      <div class="step-num">08</div>
+      <div>
+        <div class="step-title">PT 면접 대비</div>
+        <div class="step-desc">주제 해석 → 자료 구조 → 슬라이드 → 리허설</div>
+      </div>
+      <div class="step-right" data-coverage="pt-up">
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">결론을 마지막에 두는 발표 · 시간 배분 실패</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text"><strong>결론부터 + 8장 구조</strong> · Q&A까지 시뮬레이션 완료</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">PT 면접 자료 준비</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text"><strong>주제 해석·자료 구성 코칭</strong> · 발표 리허설 + Q&A 대응 훈련</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark interview pt" title="면접 PT 대비">T</span>
+        <span class="pmark interview prem" title="면접 Premium">P</span>
+        <span class="pmark interview unlt" title="면접 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+    <div class="step-row ut-only">
+      <div class="step-num">09</div>
+      <div>
+        <div class="step-title">실전 모의면접</div>
+        <div class="step-desc">실전 시뮬레이션 · 최종 피드백</div>
+      </div>
+      <div class="step-right" data-coverage="all-interview">
+        <span class="step-note">답변 내용·태도·매너 전반 피드백 · 꼬리·지뢰질문 실시간 대응 훈련</span>
+        <div class="ba-wrap">
+          <div class="ba-row before"><span class="ba-tag before">BEFORE</span><span class="ba-text">머리로만 준비 · 카메라 앞 첫 답변에 떨림</span></div>
+          <div class="ba-row after"><span class="ba-tag after">AFTER</span><span class="ba-text">실전 꼬리·지뢰 질문 통과</span></div>
+        </div>
+        <div class="role-wrap">
+          <div class="role-row you"><span class="role-tag you">멘티</span><span class="role-text">실전과 동일 환경(화상)에서 면접 응시 · 즉석 답변 수행</span></div>
+          <div class="role-row ce"><span class="role-tag ce">Career<em>Engineer</em></span><span class="role-text">답변 내용·태도·매너 피드백 · 꼬리·지뢰 질문 실시간 투입</span></div>
+        </div>
+      </div>
+      <div class="pmark-group">
+        <span class="pmark interview mock" title="면접 모의면접">M</span>
+        <span class="pmark interview pt" title="면접 PT 대비">T</span>
+        <span class="pmark interview prem" title="면접 Premium">P</span>
+        <span class="pmark interview unlt" title="면접 Unlimited">U</span>
+        <span class="pmark-divider"></span>
+        <span class="pmark ult-label" title="Ultimate">UT</span>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-left">
+      <strong style="color:var(--ce-ink);">시니어 현직자 1:1 멘토링</strong><br>
+      온라인 화상 미팅 | 화면 공유 실시간 첨삭
+    </div>
+    <a href="https://open.kakao.com/me/careerengineer" target="_blank" rel="noopener" style="text-decoration:none;">
+      <div class="footer-cta">카카오톡 1:1 상담</div>
+    </a>
+    <div class="footer-note">
+      <span class="pmark docs unlt" style="margin-right:3px;">■</span>서류 &nbsp;
+      <span class="pmark interview pt" style="margin-right:3px;">●</span>면접 &nbsp;
+      <span class="pmark ult-label" style="margin-right:3px;">UT</span>Ultimate<br>
+      © 2026 CareerEngineer. All Rights Reserved.
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
