@@ -46,16 +46,16 @@
     background: var(--ce-paper);
     font-family: 'Pretendard Variable', Pretendard, 'Apple SD Gothic Neo', sans-serif;
     color: var(--ce-ink);
-    font-size: 13px;
+    font-size: 26px;
     line-height: 1.5;
   }
 
   .page {
-    width: 794px;
-    min-height: 1123px;
+    width: 1588px;
+    min-height: 2246px;
     margin: 0 auto;
     background: var(--ce-paper);
-    padding: 30px 36px 24px;
+    padding: 60px 72px 48px;
   }
   /* PDF 출력 시 자연 페이지 분할 */
   @page { size: A4; margin: 0; }
@@ -65,23 +65,23 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    border-bottom: 2px solid var(--ce-gold);
-    padding-bottom: 9px;
-    margin-bottom: 14px;
+    border-bottom: 4px solid var(--ce-gold);
+    padding-bottom: 18px;
+    margin-bottom: 28px;
   }
   .brand-lockup {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: 18px;
   }
   .brand-mark {
-    width: 26px;
-    height: 24px;
+    width: 52px;
+    height: 48px;
     flex-shrink: 0;
   }
   .brand-name {
     font-family: 'Pretendard Variable', Pretendard, sans-serif;
-    font-size: 22px; font-weight: 700;
+    font-size: 44px; font-weight: 700;
     color: var(--ce-ink); letter-spacing: -0.028em;
     line-height: 1;
   }
@@ -89,7 +89,7 @@
   .brand-name em { color: var(--ce-gold); font-style: normal; }
   .doc-title {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; color: var(--ce-mute);
+    font-size: 22px; color: var(--ce-mute);
     letter-spacing: 0.18em; font-weight: 500; text-transform: uppercase;
   }
 
@@ -109,17 +109,17 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 16px;
-    height: 16px;
+    width: 32px;
+    height: 32px;
     flex-shrink: 0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--white);
     line-height: 1;
   }
   /* 서류 = 사각형 (모서리 살짝 둥글) */
-  .pmark.docs { border-radius: 2px; }
+  .pmark.docs { border-radius: 4px; }
   /* 면접 = 원형 (완전 원) */
   .pmark.interview { border-radius: 50%; }
 
@@ -135,35 +135,35 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 22px;
-    height: 16px;
+    width: 44px;
+    height: 32px;
     background: var(--ce-gold-soft);
     color: var(--ce-ink);
-    border-radius: 8px 2px 8px 2px;
+    border-radius: 16px 4px 16px 4px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
+    font-size: 16px;
     font-weight: 700;
     flex-shrink: 0;
     line-height: 1;
     letter-spacing: 0.05em;
-    border: 1px solid var(--ce-gold-deep);
+    border: 2px solid var(--ce-gold-deep);
   }
 
   /* 마크 그룹 (단계 우측에 여러 마크 표시) */
   .pmark-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 3px;
+    gap: 6px;
     justify-content: flex-end;
     align-content: flex-start;
-    padding-top: 2px;
+    padding-top: 4px;
     align-items: center;
   }
   .pmark-divider {
-    width: 1px;
+    width: 2px;
     background: rgba(14,39,80,0.18);
-    height: 14px;
-    margin: 0 2px;
+    height: 28px;
+    margin: 0 4px;
     flex-shrink: 0;
   }
 
@@ -172,94 +172,94 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin: 4px 0 10px;
-    padding: 6px 12px;
+    gap: 28px;
+    margin: 8px 0 20px;
+    padding: 12px 24px;
     background: rgba(14,39,80,0.04);
-    border-radius: 6px;
-    font-size: 9.5px;
+    border-radius: 12px;
+    font-size: 19px;
     color: var(--ce-mute);
     flex-wrap: wrap;
   }
   .legend-bar-item {
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
   }
   .legend-bar-item strong {
     color: var(--ce-ink);
     font-weight: 600;
   }
   .legend-divider-v {
-    width: 1px;
-    height: 12px;
+    width: 2px;
+    height: 24px;
     background: rgba(14,39,80,0.15);
   }
 
   .onboard {
     display: grid;
-    grid-template-columns: 90px 1fr;
+    grid-template-columns: 180px 1fr;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 6px;
-    border-radius: 8px;
-    padding: 8px 12px;
+    gap: 20px;
+    margin-bottom: 12px;
+    border-radius: 16px;
+    padding: 16px 24px;
   }
   .onboard.docs    { background: var(--ce-ink); }
   .onboard.interview { background: var(--ce-ink-2); }
   .ob-track {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; font-weight: 700;
+    font-size: 18px; font-weight: 700;
     letter-spacing: 0.12em;
     color: var(--ce-gold);
     text-transform: uppercase;
-    border-right: 1px solid rgba(201,168,106,0.3);
-    padding-right: 8px;
+    border-right: 2px solid rgba(201,168,106,0.3);
+    padding-right: 16px;
     line-height: 1.35;
   }
   .ob-track strong {
     display: block;
     font-family: 'Noto Serif KR', serif;
-    font-size: 11px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--white);
     letter-spacing: -0.01em;
-    margin-top: 2px;
+    margin-top: 4px;
   }
   .ob-steps {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 8px;
   }
-  .ob-step { display: flex; flex-direction: column; align-items: center; gap: 2px; flex: 1; }
-  .ob-label { font-size: 9.5px; font-weight: 700; color: var(--ce-gold); text-align: center; letter-spacing: 0.02em; }
-  .ob-sub   { font-size: 8.5px; color: rgba(242,241,236,0.6); text-align: center; line-height: 1.3; }
-  .ob-arrow { color: var(--ce-gold-deep); font-size: 13px; opacity: 0.7; flex-shrink: 0; }
+  .ob-step { display: flex; flex-direction: column; align-items: center; gap: 4px; flex: 1; }
+  .ob-label { font-size: 19px; font-weight: 700; color: var(--ce-gold); text-align: center; letter-spacing: 0.02em; }
+  .ob-sub   { font-size: 17px; color: rgba(242,241,236,0.6); text-align: center; line-height: 1.3; }
+  .ob-arrow { color: var(--ce-gold-deep); font-size: 26px; opacity: 0.7; flex-shrink: 0; }
 
   /* ── PLAN CARDS (서류 2 + 면접 4 + Ultimate 통합) ── */
   .plan-block {
     display: grid;
-    grid-template-columns: 1fr 200px;
-    gap: 7px;
-    margin-top: 8px;
-    margin-bottom: 14px;
+    grid-template-columns: 1fr 400px;
+    gap: 14px;
+    margin-top: 16px;
+    margin-bottom: 28px;
   }
   .plan-rows {
     display: flex;
     flex-direction: column;
-    gap: 7px;
+    gap: 14px;
   }
   .plan-row-label {
     display: flex;
     align-items: center;
-    gap: 7px;
+    gap: 14px;
   }
   .plan-row-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8.5px; font-weight: 700;
+    font-size: 17px; font-weight: 700;
     letter-spacing: 0.1em;
-    padding: 3px 8px;
-    border-radius: 3px;
+    padding: 6px 16px;
+    border-radius: 6px;
     white-space: nowrap;
     flex-shrink: 0;
     text-transform: uppercase;
@@ -269,111 +269,111 @@
 
   .plan-row-cards {
     display: grid;
-    gap: 5px;
+    gap: 10px;
     flex: 1;
   }
   .plan-row-cards.docs-row      { grid-template-columns: 1fr 1fr; }
   .plan-row-cards.interview-row { grid-template-columns: 1fr 1fr 1fr 1fr; }
 
   .pc {
-    border-radius: 6px;
-    padding: 6px 9px;
-    border-left: 3px solid transparent;
+    border-radius: 12px;
+    padding: 12px 18px;
+    border-left: 6px solid transparent;
     background: var(--white);
     display: flex;
     flex-direction: column;
-    gap: 1px;
-    min-height: 56px;
+    gap: 2px;
+    min-height: 112px;
   }
   .pc.docs       { border-left-color: var(--ce-ink-2); background: rgba(27,58,107,0.04); }
-  .pc.docs.best  { border-left-color: var(--ce-gold-deep);  background: linear-gradient(135deg, rgba(168,133,63,0.22), rgba(168,133,63,0.08)); border-left-width: 4px; }
+  .pc.docs.best  { border-left-color: var(--ce-gold-deep);  background: linear-gradient(135deg, rgba(168,133,63,0.22), rgba(168,133,63,0.08)); border-left-width: 8px; }
   .pc.interview  { border-left-color: var(--ce-mute); background: rgba(110,122,143,0.06); }
-  .pc.interview.best { border-left-color: var(--ce-gold); background: linear-gradient(135deg, rgba(6,19,40,0.14), rgba(6,19,40,0.05)); border-left-width: 4px; }
+  .pc.interview.best { border-left-color: var(--ce-gold); background: linear-gradient(135deg, rgba(6,19,40,0.14), rgba(6,19,40,0.05)); border-left-width: 8px; }
 
   .pc-name {
     font-family: 'Noto Serif KR', serif;
-    font-size: 10.5px; font-weight: 700;
+    font-size: 21px; font-weight: 700;
     color: var(--ce-ink);
     line-height: 1.2;
   }
-  .pc-name .pc-best { color: var(--ce-gold-deep); font-size: 8.5px; margin-left: 3px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
-  .pc-price { font-size: 12px; font-weight: 700; color: var(--ce-ink); line-height: 1.1; }
-  .pc-orig  { font-size: 8.5px; color: var(--ce-mute); text-decoration: line-through; line-height: 1; }
-  .pc-feat  { font-size: 8.5px; color: var(--ce-mute); line-height: 1.35; margin-top: 1px; }
+  .pc-name .pc-best { color: var(--ce-gold-deep); font-size: 17px; margin-left: 6px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em; }
+  .pc-price { font-size: 24px; font-weight: 700; color: var(--ce-ink); line-height: 1.1; }
+  .pc-orig  { font-size: 17px; color: var(--ce-mute); text-decoration: line-through; line-height: 1; }
+  .pc-feat  { font-size: 17px; color: var(--ce-mute); line-height: 1.35; margin-top: 2px; }
 
   /* Ultimate 통합 카드 — 우측 2줄 높이 */
   .plan-ultimate {
     background: linear-gradient(135deg, rgba(201,168,106,0.16), rgba(201,168,106,0.06));
-    border: 2px solid var(--ce-gold);
-    border-radius: 8px;
-    padding: 10px 11px;
+    border: 4px solid var(--ce-gold);
+    border-radius: 16px;
+    padding: 20px 22px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 3px;
+    gap: 6px;
   }
   .pu-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px; font-weight: 700;
+    font-size: 16px; font-weight: 700;
     letter-spacing: 0.1em;
     background: var(--ce-gold);
     color: var(--ce-ink);
-    padding: 2px 6px;
-    border-radius: 3px;
+    padding: 4px 12px;
+    border-radius: 6px;
     align-self: flex-start;
     text-transform: uppercase;
   }
   .pu-name {
     font-family: 'Noto Serif KR', serif;
-    font-size: 13px; font-weight: 700;
+    font-size: 26px; font-weight: 700;
     color: var(--ce-ink);
     line-height: 1.2;
-    margin-top: 3px;
+    margin-top: 6px;
   }
   .pu-name em { color: var(--ce-gold-deep); font-style: normal; }
-  .pu-price { font-size: 14px; font-weight: 700; color: var(--ce-ink); line-height: 1.1; }
-  .pu-orig  { font-size: 9px; color: var(--ce-mute); text-decoration: line-through; line-height: 1; }
-  .pu-desc  { font-size: 9px; color: var(--ce-ink); line-height: 1.4; margin-top: 3px; }
+  .pu-price { font-size: 28px; font-weight: 700; color: var(--ce-ink); line-height: 1.1; }
+  .pu-orig  { font-size: 18px; color: var(--ce-mute); text-decoration: line-through; line-height: 1; }
+  .pu-desc  { font-size: 18px; color: var(--ce-ink); line-height: 1.4; margin-top: 6px; }
   .pu-desc strong { color: var(--ce-gold-deep); font-weight: 700; }
 
   /* ── SECTION LABEL ── */
   .section-label {
-    display: flex; align-items: center; gap: 8px;
-    margin-bottom: 7px; margin-top: 12px;
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 14px; margin-top: 24px;
   }
   .sec-pill {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8.5px; font-weight: 600; letter-spacing: 0.15em;
-    padding: 3px 10px; border-radius: 20px; white-space: nowrap; text-transform: uppercase;
+    font-size: 17px; font-weight: 600; letter-spacing: 0.15em;
+    padding: 6px 20px; border-radius: 40px; white-space: nowrap; text-transform: uppercase;
   }
   .sec-pill.part1 { background: var(--ce-ink);       color: var(--ce-gold); }
   .sec-pill.part2 { background: var(--ce-ink-2);     color: var(--ce-gold); }
   .sec-pill.part3 { background: var(--ce-gold-deep); color: var(--white); }
   .sec-pill.part0 { background: var(--ce-mute);      color: var(--white); }
-  .sec-title { font-family: 'Noto Serif KR', serif; font-size: 12px; font-weight: 700; color: var(--ce-ink); }
-  .sec-divider { flex: 1; height: 1px; background: rgba(14,39,80,0.15); }
+  .sec-title { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; color: var(--ce-ink); }
+  .sec-divider { flex: 1; height: 2px; background: rgba(14,39,80,0.15); }
 
-  .legend { display: flex; gap: 4px; align-items: center; }
-  .legend .pmark { width: 13px; height: 13px; font-size: 7px; }
-  .legend .pmark.ult-label { width: 18px; height: 13px; font-size: 7px; }
+  .legend { display: flex; gap: 8px; align-items: center; }
+  .legend .pmark { width: 26px; height: 26px; font-size: 16px; }
+  .legend .pmark.ult-label { width: 36px; height: 26px; font-size: 16px; }
   .pt {
-    font-size: 9px; font-weight: 700;
-    padding: 2px 6px; border-radius: 3px;
+    font-size: 18px; font-weight: 700;
+    padding: 4px 12px; border-radius: 6px;
     font-family: 'JetBrains Mono', monospace; letter-spacing: 0.05em;
   }
-  .pt-p  { background: var(--p-bg);  color: var(--p-txt);  border: 1px solid var(--p-border); }
-  .pt-ul { background: var(--u-bg);  color: var(--u-txt);  border: 1px solid var(--u-border); }
-  .pt-ut { background: var(--ut-bg); color: var(--ut-txt); border: 1px solid var(--ut-border); }
+  .pt-p  { background: var(--p-bg);  color: var(--p-txt);  border: 2px solid var(--p-border); }
+  .pt-ul { background: var(--u-bg);  color: var(--u-txt);  border: 2px solid var(--u-border); }
+  .pt-ut { background: var(--ut-bg); color: var(--ut-txt); border: 2px solid var(--ut-border); }
 
   /* ── STEP ROW ── */
-  .step-list { display: flex; flex-direction: column; gap: 4px; }
+  .step-list { display: flex; flex-direction: column; gap: 8px; }
 
   .step-row {
     display: grid;
-    grid-template-columns: 28px 128px 1fr 100px;
-    gap: 7px; align-items: start;
-    background: var(--white); border-radius: 6px;
-    padding: 6px 10px; border-left: 3px solid var(--ce-ink);
+    grid-template-columns: 56px 256px 1fr 200px;
+    gap: 14px; align-items: start;
+    background: var(--white); border-radius: 12px;
+    padding: 12px 20px; border-left: 6px solid var(--ce-ink);
   }
   .step-row.ut-only {
     border-left-color: var(--ce-ink-2);
@@ -390,25 +390,25 @@
 
   .step-num {
     font-family: 'Noto Serif KR', serif;
-    font-size: 18px; font-weight: 700;
-    color: var(--ce-ink); line-height: 1; padding-top: 1px;
+    font-size: 36px; font-weight: 700;
+    color: var(--ce-ink); line-height: 1; padding-top: 2px;
   }
   .step-row.ut-only .step-num { color: var(--ce-ink-2); }
-  .step-row.iv-step .step-num { color: var(--ce-ink-2); font-size: 16px; padding-top: 3px; }
+  .step-row.iv-step .step-num { color: var(--ce-ink-2); font-size: 32px; padding-top: 6px; }
   .step-row.kickoff .step-num { color: var(--ce-mute); }
 
-  .step-title { font-size: 12px; font-weight: 700; color: var(--ce-ink); margin-bottom: 2px; }
-  .step-desc  { font-size: 10.5px; color: var(--ce-mute); line-height: 1.4; }
-  .step-right { display: flex; flex-direction: column; gap: 3px; }
+  .step-title { font-size: 24px; font-weight: 700; color: var(--ce-ink); margin-bottom: 4px; }
+  .step-desc  { font-size: 21px; color: var(--ce-mute); line-height: 1.4; }
+  .step-right { display: flex; flex-direction: column; gap: 6px; }
 
   .doc-tag {
     display: inline-block;
-    font-size: 10px; font-weight: 600;
-    border-radius: 4px; padding: 2px 6px; width: fit-content;
+    font-size: 20px; font-weight: 600;
+    border-radius: 8px; padding: 4px 12px; width: fit-content;
   }
-  .doc-tag.wb { color: var(--ce-gold-deep); background: rgba(168,133,63,0.10); border: 1px solid rgba(168,133,63,0.35); }
-  .doc-tag.fb { color: var(--ce-ink);       background: rgba(14,39,80,0.07);   border: 1px solid rgba(14,39,80,0.2); }
-  .doc-tag.mi { color: var(--ce-gold-deep); background: rgba(168,133,63,0.10); border: 1px solid rgba(168,133,63,0.35); }
+  .doc-tag.wb { color: var(--ce-gold-deep); background: rgba(168,133,63,0.10); border: 2px solid rgba(168,133,63,0.35); }
+  .doc-tag.fb { color: var(--ce-ink);       background: rgba(14,39,80,0.07);   border: 2px solid rgba(14,39,80,0.2); }
+  .doc-tag.mi { color: var(--ce-gold-deep); background: rgba(168,133,63,0.10); border: 2px solid rgba(168,133,63,0.35); }
   /* 자료 제공 — doc-tag 자체가 링크 */
   a.doc-tag-link {
     text-decoration: none;
@@ -417,59 +417,59 @@
   a.doc-tag-link:hover .doc-tag {
     opacity: 0.78;
     text-decoration: underline;
-    text-underline-offset: 2px;
+    text-underline-offset: 4px;
   }
   .doc-line-wrap {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 8px;
   }
   /* doc-tag + doc-worth 한 줄 컨테이너 (step-right column flex 안에서 한 라인) */
   .doc-line {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2px 0;
+    gap: 4px 0;
   }
   /* 자료 정가 상당액 — doc-tag 옆에 inline으로 */
   .doc-worth {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--ce-mute);
-    margin-left: 6px;
+    margin-left: 12px;
     letter-spacing: 0.02em;
     white-space: nowrap;
   }
   .doc-worth strong { color: var(--ce-gold-deep); font-weight: 700; }
 
-  .step-note { font-size: 10px; color: var(--ce-mute); line-height: 1.4; }
+  .step-note { font-size: 20px; color: var(--ce-mute); line-height: 1.4; }
 
   /* ── BEFORE / AFTER ROWS ── */
   .ba-wrap {
-    margin-top: 6px;
+    margin-top: 12px;
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 6px;
   }
   .ba-row {
     display: flex;
     align-items: flex-start;
-    gap: 6px;
-    font-size: 9.5px;
+    gap: 12px;
+    font-size: 19px;
     line-height: 1.4;
   }
   .ba-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8.5px;
+    font-size: 17px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    padding: 1px 5px;
-    border-radius: 3px;
+    padding: 2px 10px;
+    border-radius: 6px;
     flex-shrink: 0;
-    margin-top: 1px;
-    min-width: 42px;
+    margin-top: 2px;
+    min-width: 84px;
     text-align: center;
   }
   .ba-tag.before { background: rgba(110,122,143,0.15); color: var(--ce-mute); }
@@ -480,32 +480,32 @@
 
   /* ── ROLE ROWS (지원자 · CareerEngineer 역할) ── */
   .role-wrap {
-    margin-top: 4px;
-    padding-top: 4px;
-    border-top: 1px dashed rgba(14,39,80,0.12);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 2px dashed rgba(14,39,80,0.12);
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
   }
   .role-row {
     display: flex;
     align-items: flex-start;
-    gap: 5px;
-    font-size: 9.5px;
+    gap: 10px;
+    font-size: 19px;
     line-height: 1.4;
   }
   .role-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
+    font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.04em;
-    padding: 1px 4px;
-    border-radius: 3px;
+    padding: 2px 8px;
+    border-radius: 6px;
     flex-shrink: 0;
-    margin-top: 1px;
-    width: 80px;
+    margin-top: 2px;
+    width: 160px;
     text-align: center;
-    border: 1px solid transparent;
+    border: 2px solid transparent;
     box-sizing: border-box;
   }
   .role-tag.you {
@@ -529,94 +529,94 @@
   .role-row.ce .role-text strong { color: var(--ce-gold-deep); font-weight: 700; }
 
   .plan-tags {
-    display: flex; gap: 3px; flex-wrap: wrap;
-    justify-content: flex-end; align-self: start; padding-top: 2px;
+    display: flex; gap: 6px; flex-wrap: wrap;
+    justify-content: flex-end; align-self: start; padding-top: 4px;
   }
 
   /* ── INTERVIEW STANDALONE SECTION ── */
   .interview-intro {
-    margin-top: 6px; margin-bottom: 8px;
+    margin-top: 12px; margin-bottom: 16px;
     background: var(--ce-ink);
-    border-radius: 8px; padding: 10px 14px;
+    border-radius: 16px; padding: 20px 28px;
   }
   .interview-intro-title {
     font-family: 'Noto Serif KR', serif;
-    font-size: 12px; font-weight: 700;
-    color: var(--ce-gold); margin-bottom: 3px;
+    font-size: 24px; font-weight: 700;
+    color: var(--ce-gold); margin-bottom: 6px;
   }
   .interview-intro-desc {
-    font-size: 10px; color: rgba(242,241,236,0.72); line-height: 1.5;
+    font-size: 20px; color: rgba(242,241,236,0.72); line-height: 1.5;
   }
 
   /* 5가지 면접 플랜 카드 */
   .interview-plan-row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 5px; margin-bottom: 8px;
+    gap: 10px; margin-bottom: 16px;
   }
   .iv-card {
-    border-radius: 6px; padding: 7px 8px; text-align: center;
-    border: 1px solid rgba(14,39,80,0.14);
+    border-radius: 12px; padding: 14px 16px; text-align: center;
+    border: 2px solid rgba(14,39,80,0.14);
     background: var(--white);
     display: flex; flex-direction: column;
   }
   .iv-card.best {
-    border: 2px solid var(--ce-gold);
+    border: 4px solid var(--ce-gold);
     background: rgba(201,168,106,0.06);
   }
   .iv-card.top {
-    border: 2px solid var(--ce-ink-2);
+    border: 4px solid var(--ce-ink-2);
     background: rgba(14,39,80,0.05);
   }
   .iv-badge {
     display: inline-block; align-self: center;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 7.5px; font-weight: 600;
-    padding: 1px 6px; border-radius: 10px; margin-bottom: 4px; letter-spacing: 0.04em;
+    font-size: 16px; font-weight: 600;
+    padding: 2px 12px; border-radius: 20px; margin-bottom: 8px; letter-spacing: 0.04em;
     background: var(--ce-gold); color: var(--ce-ink);
   }
   .iv-badge.navy { background: var(--ce-ink-2); color: var(--white); }
   .iv-name {
     font-family: 'Noto Serif KR', serif;
-    font-size: 11px; font-weight: 700;
-    color: var(--ce-ink); margin-bottom: 2px;
+    font-size: 22px; font-weight: 700;
+    color: var(--ce-ink); margin-bottom: 4px;
   }
   .iv-card.best .iv-name { color: var(--ce-gold-deep); }
   .iv-card.top  .iv-name { color: var(--ce-ink-2); }
   .iv-discount {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px; font-weight: 600;
-    color: var(--ce-gold-deep); letter-spacing: 0.03em; margin-bottom: 1px;
+    font-size: 16px; font-weight: 600;
+    color: var(--ce-gold-deep); letter-spacing: 0.03em; margin-bottom: 2px;
   }
-  .iv-price { font-size: 11px; font-weight: 700; color: var(--ce-ink); }
-  .iv-orig  { font-size: 8.5px; color: var(--ce-mute); text-decoration: line-through; margin-bottom: 4px; }
+  .iv-price { font-size: 22px; font-weight: 700; color: var(--ce-ink); }
+  .iv-orig  { font-size: 17px; color: var(--ce-mute); text-decoration: line-through; margin-bottom: 8px; }
   .iv-features {
-    text-align: left; margin-top: 4px; padding-top: 4px;
-    border-top: 1px solid rgba(14,39,80,0.09); flex: 1;
+    text-align: left; margin-top: 8px; padding-top: 8px;
+    border-top: 2px solid rgba(14,39,80,0.09); flex: 1;
   }
   .iv-feat {
-    font-size: 8.5px; color: var(--ce-mute); line-height: 1.55;
-    padding-left: 9px; position: relative;
+    font-size: 17px; color: var(--ce-mute); line-height: 1.55;
+    padding-left: 18px; position: relative;
   }
-  .iv-feat::before { content: '·'; position: absolute; left: 1px; color: var(--ce-gold-deep); font-weight: 700; }
+  .iv-feat::before { content: '·'; position: absolute; left: 2px; color: var(--ce-gold-deep); font-weight: 700; }
   .iv-feat strong { color: var(--ce-ink); font-weight: 700; }
 
   /* ── FOOTER ── */
   .footer {
-    margin-top: 14px; padding-top: 9px;
-    border-top: 1px solid rgba(14,39,80,0.15);
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    margin-top: 28px; padding-top: 18px;
+    border-top: 2px solid rgba(14,39,80,0.15);
+    display: flex; justify-content: space-between; align-items: center; gap: 24px;
   }
-  .footer-left { font-size: 10px; color: var(--ce-mute); line-height: 1.6; }
+  .footer-left { font-size: 20px; color: var(--ce-mute); line-height: 1.6; }
   .footer-cta {
     background: var(--ce-ink); color: var(--ce-gold);
-    font-size: 10px; font-weight: 700;
-    padding: 6px 14px; border-radius: 6px;
+    font-size: 20px; font-weight: 700;
+    padding: 12px 28px; border-radius: 12px;
     letter-spacing: 0.05em; white-space: nowrap;
   }
   .footer-note {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 9px; color: var(--ce-mute); text-align: right; line-height: 1.7; letter-spacing: 0.04em;
+    font-size: 18px; color: var(--ce-mute); text-align: right; line-height: 1.7; letter-spacing: 0.04em;
   }
 
   @media print {
@@ -691,7 +691,7 @@
           <a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="text-decoration:none;">
           <div class="pc docs best">
             <div class="pc-name"><span class="pmark docs unlt">U</span> Unlimited<span class="pc-best">★ BEST</span></div>
-            <div class="pc-price">300,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">400,000원</span></div>
+            <div class="pc-price">300,000원 <span style="font-size: 17px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">400,000원</span></div>
             <div class="pc-feat">Unlimited 서류합격 멘토링 · 무제한 첨삭</div>
           </div>
           </a>
@@ -704,28 +704,28 @@
           <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
           <div class="pc interview">
             <div class="pc-name"><span class="pmark interview mock">M</span> 모의면접</div>
-            <div class="pc-price">100,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">200,000원</span></div>
+            <div class="pc-price">100,000원 <span style="font-size: 17px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">200,000원</span></div>
             <div class="pc-feat">실전 모의면접 및 피드백 · 1회</div>
           </div>
           </a>
           <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
           <div class="pc interview">
             <div class="pc-name"><span class="pmark interview pt">T</span> PT면접</div>
-            <div class="pc-price">150,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">300,000원</span></div>
+            <div class="pc-price">150,000원 <span style="font-size: 17px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">300,000원</span></div>
             <div class="pc-feat">PT면접 멘토링 · 발표 집중</div>
           </div>
           </a>
           <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
           <div class="pc interview">
             <div class="pc-name"><span class="pmark interview prem">P</span> Premium</div>
-            <div class="pc-price">200,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">400,000원</span></div>
+            <div class="pc-price">200,000원 <span style="font-size: 17px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">400,000원</span></div>
             <div class="pc-feat">Premium 면접합격 멘토링</div>
           </div>
           </a>
           <a href="https://www.latpeed.com/products/tZ5xw" target="_blank" rel="noopener" style="text-decoration:none;">
           <div class="pc interview best">
             <div class="pc-name"><span class="pmark interview unlt">U</span> Unlimited<span class="pc-best">★</span></div>
-            <div class="pc-price">300,000원 <span style="font-size:8.5px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">500,000원</span></div>
+            <div class="pc-price">300,000원 <span style="font-size: 17px;color:var(--ce-mute);text-decoration:line-through;font-weight:400;">500,000원</span></div>
             <div class="pc-feat">Unlimited 면접합격 멘토링</div>
           </div>
           </a>
@@ -735,13 +735,13 @@
 
     <!-- Ultimate — 두 줄 통합 -->
     <div class="plan-ultimate">
-      <span class="pu-tag"><span class="pmark ult-label" style="margin-right:5px;">UT</span>All-in-One</span>
-      <div class="pu-name">Ultimate <a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="color:var(--ce-gold-deep);text-decoration:underline;text-underline-offset:2px;font-style:normal;">최종합격</a></div>
+      <span class="pu-tag"><span class="pmark ult-label" style="margin-right:10px;">UT</span>All-in-One</span>
+      <div class="pu-name">Ultimate <a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="color:var(--ce-gold-deep);text-decoration:underline;text-underline-offset:4px;font-style:normal;">최종합격</a></div>
       <div>
         <span class="pu-orig">정가 700,000원</span>
         <div class="pu-price">497,000원</div>
       </div>
-      <div class="pu-desc"><a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="color:var(--ce-gold-deep);font-weight:700;text-decoration:underline;text-underline-offset:2px;">서류 Unlimited</a> + 면접 Unlimited 통합 · 한 멘토가 자소서·이력서부터 모든 면접 유형까지 전 과정 동반</div>
+      <div class="pu-desc"><a href="https://www.latpeed.com/products/fKnUV" target="_blank" rel="noopener" style="color:var(--ce-gold-deep);font-weight:700;text-decoration:underline;text-underline-offset:4px;">서류 Unlimited</a> + 면접 Unlimited 통합 · 한 멘토가 자소서·이력서부터 모든 면접 유형까지 전 과정 동반</div>
     </div>
   </div>
 
@@ -751,7 +751,7 @@
     <div class="sec-title">멘토링 시작 전 — 초기 인터뷰로 전략 수립</div>
     <div class="sec-divider"></div>
     <div class="legend">
-      <span style="font-size:9px;color:var(--ce-mute);">전 상품 공통 ▶</span>
+      <span style="font-size: 18px;color:var(--ce-mute);">전 상품 공통 ▶</span>
     </div>
   </div>
 
@@ -803,7 +803,7 @@
       <span class="pmark docs prem">P</span>
       <span class="pmark docs unlt">U</span>
       <span class="pmark ult-label">UT</span>
-      <span style="font-size:9px;color:var(--ce-mute);">서류 멘토링 전 상품</span>
+      <span style="font-size: 18px;color:var(--ce-mute);">서류 멘토링 전 상품</span>
     </div>
   </div>
 
@@ -977,7 +977,7 @@
       <span class="pmark interview prem">P</span>
       <span class="pmark interview unlt">U</span>
       <span class="pmark ult-label">UT</span>
-      <span style="font-size:9px;color:var(--ce-mute);">면접 멘토링 전 상품</span>
+      <span style="font-size: 18px;color:var(--ce-mute);">면접 멘토링 전 상품</span>
     </div>
   </div>
 
@@ -1111,9 +1111,9 @@
       <div class="footer-cta">카카오톡 1:1 상담</div>
     </a>
     <div class="footer-note">
-      <span class="pmark docs unlt" style="margin-right:3px;">■</span>서류 &nbsp;
-      <span class="pmark interview pt" style="margin-right:3px;">●</span>면접 &nbsp;
-      <span class="pmark ult-label" style="margin-right:3px;">UT</span>Ultimate<br>
+      <span class="pmark docs unlt" style="margin-right:6px;">■</span>서류 &nbsp;
+      <span class="pmark interview pt" style="margin-right:6px;">●</span>면접 &nbsp;
+      <span class="pmark ult-label" style="margin-right:6px;">UT</span>Ultimate<br>
       © 2026 CareerEngineer. All Rights Reserved.
     </div>
   </div>
